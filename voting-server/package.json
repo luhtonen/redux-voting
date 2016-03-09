@@ -1,7 +1,7 @@
 {
   "name": "voting-server",
   "version": "0.0.1",
-  "description": "",
+  "description": "Voting server from Full Stack Redux Tutorial",
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js",
