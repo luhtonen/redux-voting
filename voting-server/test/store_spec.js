@@ -2,6 +2,7 @@ import {Map, fromJS} from 'immutable';
 import {expect} from 'chai';
 
 import makeStore from '../src/store';
+import ActionTypes from '../src/actionTypes';
 
 describe('store', () => {
 
@@ -10,7 +11,7 @@ describe('store', () => {
     expect(store.getState()).to.equal(Map());
 
     store.dispatch({
-      type: 'SET_ENTRIES',
+      type: ActionTypes.SET_ENTRIES,
       entries: ['Trainspotting', '28 Days Later']
     });
     expect(store.getState()).to.equal(fromJS({

@@ -2,11 +2,12 @@ import {Map, fromJS} from 'immutable';
 import {expect} from 'chai';
 
 import reducer from '../src/reducer';
+import ActionTypes from '../src/actionTypes';
 
 describe('reducer', () => {
   it('handles SET_ENTRIES', () => {
     const initialState = Map();
-    const action = {type: 'SET_ENTRIES', entries: ['Trainspotting']};
+    const action = {type: ActionTypes.SET_ENTRIES, entries: ['Trainspotting']};
     const nextState = reducer(initialState, action);
 
     expect(nextState).to.equal(fromJS({
@@ -18,7 +19,7 @@ describe('reducer', () => {
     const initialState = fromJS({
       entries: ['Trainspotting', '28 Days Later']
     });
-    const action = {type: 'NEXT'};
+    const action = {type: ActionTypes.NEXT};
     const nextState = reducer(initialState, action);
 
     expect(nextState).to.equal(fromJS({
@@ -36,7 +37,7 @@ describe('reducer', () => {
       },
       entries: []
     });
-    const action = {type: 'VOTE', entry: 'Trainspotting'};
+    const action = {type: ActionTypes.VOTE, entry: 'Trainspotting'};
     const nextState = reducer(initialState, action);
 
     expect(nextState).to.equal(fromJS({
@@ -49,7 +50,7 @@ describe('reducer', () => {
   });
 
   it('has an initial state', () => {
-    const action = {type: 'SET_ENTRIES', entries: ['Trainspotting']};
+    const action = {type: ActionTypes.SET_ENTRIES, entries: ['Trainspotting']};
     const nextState = reducer(undefined, action);
     expect(nextState).to.equal(fromJS({
       entries: ['Trainspotting']
@@ -58,12 +59,12 @@ describe('reducer', () => {
 
   it('can be used with reduce', () => {
     const actions = [
-      {type: 'SET_ENTRIES', entries: ['Trainspotting', '28 Days Later']},
-      {type: 'NEXT'},
-      {type: 'VOTE', entry: 'Trainspotting'},
-      {type: 'VOTE', entry: '28 Days Later'},
-      {type: 'VOTE', entry: 'Trainspotting'},
-      {type: 'NEXT'}
+      {type: ActionTypes.SET_ENTRIES, entries: ['Trainspotting', '28 Days Later']},
+      {type: ActionTypes.NEXT},
+      {type: ActionTypes.VOTE, entry: 'Trainspotting'},
+      {type: ActionTypes.VOTE, entry: '28 Days Later'},
+      {type: ActionTypes.VOTE, entry: 'Trainspotting'},
+      {type: ActionTypes.NEXT}
     ];
     const finalState = actions.reduce(reducer, Map());
 
