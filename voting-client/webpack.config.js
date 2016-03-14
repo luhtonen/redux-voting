@@ -12,6 +12,9 @@ module.exports = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'react-hot!babel'
+    }, {
+      test: /\.css$/,
+      loader: 'style!css!autoprefixer?browsers=last 2 versions'
     }]
   },
   resolve: {
@@ -28,10 +31,11 @@ module.exports = {
   }, plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: 'node_modules/html-webpack-template/index.ejs',
+      template: './src/index.ejs',
       title: 'Voting',
       appMountId: 'app',
-      inject: false
+      inject: false,
+      mobile: true
     })
   ]
 };
