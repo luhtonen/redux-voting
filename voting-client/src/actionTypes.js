@@ -1,5 +1,5 @@
 export default {
-  SET_ENTRIES: 'SET_ENTRIES',
+  SET_STATE: 'SET_STATE',
   NEXT: 'NEXT',
   VOTE: 'VOTE'
 }

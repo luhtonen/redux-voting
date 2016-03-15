@@ -7,7 +7,7 @@ function setState(state, newState) {
 
 export default function(state = Map(), action) {
   switch (action.type) {
-    case ActionTypes.SET_ENTRIES:
+    case ActionTypes.SET_STATE:
       return setState(state, action.state);
   }
   return state;

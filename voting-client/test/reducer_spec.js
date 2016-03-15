@@ -8,7 +8,7 @@ describe('reducer', () => {
   it('handles SET_STATE', () => {
     const initalState = Map();
     const action = {
-      type: ActionTypes.SET_ENTRIES,
+      type: ActionTypes.SET_STATE,
       state: Map({
         vote: Map({
           pair: List.of('Trainspotting', '28 Days Later'),
@@ -29,7 +29,7 @@ describe('reducer', () => {
   it('handles SET_STATE with plain JS payload', () => {
     const initalState = Map();
     const action = {
-      type: ActionTypes.SET_ENTRIES,
+      type: ActionTypes.SET_STATE,
       state: {
         vote: {
           pair: ['Trainspotting', '28 Days Later'],
@@ -49,7 +49,7 @@ describe('reducer', () => {
 
   it('handles SET_STATE without initial state', () => {
     const action = {
-      type: ActionTypes.SET_ENTRIES,
+      type: ActionTypes.SET_STATE,
       state: {
         vote: {
           pair: ['Trainspotting', '28 Days Later'],
