@@ -1,5 +1,6 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import Winner from './Winner';
 
 export const VOTE_WIDTH_PERCENT = 8;
 
@@ -25,7 +26,8 @@ class Results extends React.Component {
   }
 
   render() {
-    return (
+    return this.props.winner ?
+      <Winner ref="winner" winner={this.props.winner}/> :
       <div className="results">
         <div className="tally">
           {this.getPair().map(entry =>
@@ -41,8 +43,14 @@ class Results extends React.Component {
             </div>
           )}
         </div>
+        <div className="management">
+          <button ref="next"
+                  className="next"
+                  onClick={this.props.next}>
+            Next
+          </button>
+        </div>
       </div>
-    )
   }
 }
 
